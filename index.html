@@ -317,6 +317,16 @@ h2.disp em{font-style:italic;color:var(--teal)}
 .stat-l{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-40);margin-top:5px}
 @media(max-width:640px){.stat-item{padding:16px 20px;border-right:none;border-bottom:1px solid var(--ink-12)}.stat-item:last-child{border-bottom:none}.stat-n{font-size:24px}}
 
+
+/* ── Animated counter bar ── */
+.count-bar{display:flex;justify-content:center;flex-wrap:wrap;background:var(--bg-card);border-top:1px solid var(--ink-12);border-bottom:1px solid var(--ink-12)}
+.count-item{display:flex;flex-direction:column;align-items:center;padding:36px 52px;border-right:1px solid var(--ink-12);min-width:140px}
+.count-item:last-child{border-right:none}
+.count-n{font-family:'Playfair Display',serif;font-size:54px;font-weight:300;color:var(--teal);line-height:1;transition:color .3s}
+.count-l{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-40);margin-top:8px;text-align:center}
+@media(max-width:700px){.count-item{padding:24px 28px;min-width:120px}.count-n{font-size:40px}}
+@media(max-width:440px){.count-item{padding:20px 16px;min-width:calc(50% - 1px);border-right:none;border-bottom:1px solid var(--ink-12)}.count-item:nth-child(odd){border-right:1px solid var(--ink-12)}.count-item:last-child,.count-item:nth-last-child(2):nth-child(odd){border-bottom:none}}
+
 footer{border-top:1px solid rgba(255,255,255,.08);padding:38px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;background:#0D0D12;transition:background .35s}
 .foot-l{display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;text-decoration:none}
 .foot-l img{width:26px;height:26px;object-fit:contain}
@@ -430,25 +440,13 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:38px 48px;display:flex
   <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
 </section>
 
-<div class="stats">
-  <div class="stat rev"><div class="stat-n">100<sup>%</sup></div><div class="stat-lbl">AEVM réussis</div></div>
-  <div class="stat rev d1"><div class="stat-n">24<sup>h</sup></div><div class="stat-lbl">Réponse garantie</div></div>
-  <div class="stat rev d2"><div class="stat-n">✈</div><div class="stat-lbl">Accueil aéroport</div></div>
-  <div class="stat rev d3">
-    <div class="stat-route">
-      <svg class="sflag" viewBox="0 0 32 22" xmlns="http://www.w3.org/2000/svg">
-  <!-- VERT : triangle haut-gauche -->
-  <polygon points="0,0 0,22 32,0" fill="#009A00"/>
-  <!-- ROUGE : triangle bas-droit -->
-  <polygon points="0,22 32,22 32,0" fill="#DC241F"/>
-  <!-- JAUNE : bande diagonale centrale fine -->
-  <polygon points="0,16 0,22 6,22 32,6 32,0 26,0" fill="#FBDE2E"/>
-</svg>
-      <span class="sarrow">&#10230;</span>
-      <svg class="sflag" viewBox="0 0 32 22" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="22" fill="#C1272D"/><polygon points="16,5 17.5,10 22,10 18.5,13 20,18 16,15 12,18 13.5,13 10,10 14.5,10" fill="none" stroke="#006233" stroke-width="1.2"/></svg>
-    </div>
-    <div class="stat-lbl">Notre spécialité</div>
-  </div>
+
+
+<div class="count-bar" id="count-bar">
+  <div class="count-item"><span class="count-n" data-target="100" data-suffix="%">0%</span><span class="count-l">AEVM valid&eacute;s</span></div>
+  <div class="count-item"><span class="count-n" data-target="14" data-suffix="">0</span><span class="count-l">nuits tout compris</span></div>
+  <div class="count-item"><span class="count-n" data-target="24" data-suffix="h">0h</span><span class="count-l">R&eacute;ponse garantie</span></div>
+  <div class="count-item"><span class="count-n" data-target="7" data-suffix="j/7">0j/7</span><span class="count-l">Disponibles</span></div>
 </div>
 
 <section style="padding:80px 0 16px;overflow:hidden;">
@@ -912,7 +910,38 @@ setInterval(function(){ slide('gal-b', 1); }, 4500);
 
 <!-- Vercel Analytics -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js">
+// ── Animated counters ──
+(function(){
+  var bar = document.getElementById('count-bar');
+  if(!bar) return;
+  var triggered = false;
+  function easeOutCubic(t){ return 1 - Math.pow(1-t, 3); }
+  function runCounters(){
+    if(triggered) return;
+    triggered = true;
+    bar.querySelectorAll('.count-n').forEach(function(el){
+      var target = parseInt(el.dataset.target, 10);
+      var suffix = el.dataset.suffix || '';
+      var duration = 1800;
+      var start = null;
+      function step(ts){
+        if(!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var val = Math.round(easeOutCubic(progress) * target);
+        el.textContent = val + suffix;
+        if(progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var obs2 = new IntersectionObserver(function(entries){
+    if(entries[0].isIntersecting){ runCounters(); obs2.disconnect(); }
+  }, {threshold: 0.4});
+  obs2.observe(bar);
+})();
+</script>
 
 
 <a href="https://wa.me/212755861462?text=Bonjour%20Move%20Agency%2C%20je%20veux%20r%C3%A9server." id="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp Move Agency">
