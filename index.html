@@ -714,13 +714,25 @@ function goTo(id){
 }
 
 // Reveal au scroll
-var els=document.querySelectorAll('.rev');
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}
-  });
-},{threshold:0.1});
-els.forEach(function(el){obs.observe(el);});
+function initReveal(){
+  var els=document.querySelectorAll('.rev');
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target);}
+      });
+    },{threshold:0.05,rootMargin:'0px 0px -20px 0px'});
+    els.forEach(function(el){obs.observe(el);});
+  }
+  setTimeout(function(){
+    document.querySelectorAll('.rev:not(.on)').forEach(function(el){el.classList.add('on');});
+  },500);
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',initReveal);
+}else{
+  initReveal();
+}
 
 // Nav compact
 window.addEventListener('scroll',function(){
