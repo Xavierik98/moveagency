@@ -581,47 +581,154 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:38px 48px;display:flex
 
 <section class="sec-soft" id="packs">
   <div class="wrap">
-    <div class="rev" style="text-align:center;max-width:640px;margin:0 auto 56px;">
-      <span class="eye" style="display:flex;justify-content:center;">Nos formules</span>
-      <h2 class="disp">Choisissez votre<br><em>formule</em></h2>
+    <div class="rev" style="margin-bottom:40px">
+      <span class="eye">Nos formules &amp; tarifs</span>
+      <h2 class="disp">Une offre pour<br>chaque <em>voyageur.</em></h2>
+    </div>
+    <div class="tabs rev d1">
+      <button class="tab active" onclick="showTab('part')">&#128100; Particuliers</button>
+      <button class="tab" onclick="showTab('pro')">&#127970; Entreprises / Groupes</button>
     </div>
 
-    <div class="why-grid rev d1">
-
-      <div class="why-card">
-        <div class="why-n">01</div>
-        <h3>AEVM seul</h3>
-        <p>Votre autorisation d&rsquo;entr&eacute;e au Maroc g&eacute;r&eacute;e de A &agrave; Z. D&eacute;p&ocirc;t, suivi, validation. Taux de r&eacute;ussite&nbsp;: 100&nbsp;%.</p>
-        <div style="margin-top:24px;font-family:'Playfair Display',serif;font-size:26px;color:var(--ink);font-weight:300;">800 <span style="font-size:14px;color:var(--teal);">DH</span></div>
-        <div style="font-size:11px;color:var(--ink-40);margin-bottom:18px;">Paiement &agrave; l&rsquo;obtention</div>
-        <a href="https://wa.me/212755861462?text=Bonjour%2C%20je%20veux%20faire%20mon%20AEVM%20Maroc."
-           target="_blank" rel="noopener"
-           style="display:inline-block;border:1.5px solid var(--teal);color:var(--teal);font-size:11px;font-weight:600;letter-spacing:.8px;padding:10px 24px;border-radius:100px;text-decoration:none;">Demander</a>
+    <div class="pack-panel active" id="panel-part">
+      <div class="part-ban rev">
+        <div>
+          <h3>Vous voyagez pour les vacances,<br>le shopping ou découvrir le Maroc ?</h3>
+          <p>Move Agency s'occupe de tout &mdash; autorisation d'entree, accueil à Casablanca, accompagnement jusqu'a votre hébergement, et guide si besoin.</p>
+          <div class="ptags">
+            <span class="ptag">&#127796; Vacances en famille</span>
+            <span class="ptag">&#128717; Shopping Casablanca</span>
+            <span class="ptag">&#127829; Tourisme &amp; gastronomie</span>
+            <span class="ptag">&#128145; Voyage en couple</span>
+            <span class="ptag">&#128101; Entre amis</span>
+            <span class="ptag">&#9992;&#65039; Achat de billets</span>
+          </div>
+        </div>
+        <a href="https://wa.me/+212755861462" class="btn-s" target="_blank" rel="noopener" style="white-space:nowrap;flex-shrink:0">Nous écrire &rarr;</a>
       </div>
 
-      <div class="why-card" style="border:2px solid var(--teal);position:relative;">
-        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:9px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:100px;text-transform:uppercase;white-space:nowrap;">&#11088; Top vente</div>
-        <div class="why-n">02</div>
-        <h3>Pack Casablanca 14&nbsp;jours</h3>
-        <p>AEVM + accueil a&eacute;roport Mohammed&nbsp;V + h&eacute;bergement 14 nuits (Maarif / CFC / Bourgogne) + guide 3 jours + dame de m&eacute;nage.</p>
-        <div style="margin-top:24px;font-family:'Playfair Display',serif;font-size:32px;color:var(--teal);font-weight:300;">9 700 <span style="font-size:16px;">DH</span></div>
-        <div style="font-size:11px;color:var(--ink-40);margin-bottom:18px;">584 610 FCFA &mdash; tout compris</div>
-        <a href="https://wa.me/212755861462?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Pack%20Casablanca%2014%20jours."
-           target="_blank" rel="noopener"
-           style="display:inline-block;background:var(--teal);color:#fff;font-size:11px;font-weight:600;letter-spacing:.8px;padding:10px 24px;border-radius:100px;text-decoration:none;">R&eacute;server ce pack</a>
+      <div class="packs-grid rev d1">
+        <div class="pack">
+          <span class="pack-tag">Pack Essentiel</span>
+          <div class="pack-name">AEVM seul</div>
+          <div class="pack-desc">Vous gerez votre séjour. On s'occupe uniquement de vos papiers d'entree.</div>
+          <div class="price-b"><span class="price-a">800</span><span class="price-u">DH</span></div>
+          <p class="price-note">Paiement à l'obtention de l'AEVM</p>
+          <ul class="pack-items">
+            <li>Dossier AEVM complet de A à Z</li>
+            <li>Suivi &amp; relance jusqu'à validation</li>
+            <li>Accompagnement sur les documents requis</li>
+            <li>Support WhatsApp dédié</li>
+          </ul>
+          <a href="https://wa.me/+212755861462?text=Bonjour%20Move%20Agency%2C%0A%0AJe%20souhaite%20réserver%20le%20Pack%20Essentiel%20%E2%80%94%20AEVM%20seul%20(800%20DH).%0A%0AMerci%20de%20me%20recontacter%20pour%20la%20suite%20de%20la%20procedure." class="pack-lnk" target="_blank" rel="noopener">Réserver &#8594;</a>
+        </div>
+        <div class="pack star">
+          <span class="pack-tag">&#11088; Le plus choisi</span>
+          <div class="pack-name">Confort</div>
+          <div class="pack-desc">AEVM + accueil à l'aéroport + accompagnement jusqu'à votre hôtel ou appartement réservé.</div>
+          <div class="price-b"><span class="price-a">3 000</span><span class="price-u">DH</span></div>
+          <p class="price-note">Accueil à l'aéroport — Maroc</p>
+          <ul class="pack-items">
+            <li>Dossier AEVM complet</li>
+            <li>Accueil personnalisé à l'aéroport</li>
+            <li>Accompagnement jusqu'a votre hébergement</li>
+            <li>Hôtel ou appartement meublé selon préférence</li>
+            <li>Installation &amp; premiers repères</li>
+            <li>Support WhatsApp 24/7</li>
+            <li>Recherche de billets d'avion sur demande</li>
+          </ul>
+          <a href="https://wa.me/+212755861462?text=Bonjour%20Move%20Agency%2C%0A%0AJe%20souhaite%20réserver%20le%20Pack%20Confort%20(3%20000%20DH).%0A%0ACe%20pack%20comprend%20%3A%20AEVM%20%2B%20accueil%20a%20l%27aéroport%20CMN%20%2B%20accompagnement%20jusqu%27a%20mon%20hébergement.%0A%0AMerci%20de%20me%20recontacter%20pour%20confirmer%20mes%20dates." class="pack-lnk" target="_blank" rel="noopener">Réserver &#8594;</a>
+        </div>
+        <div class="pack">
+          <span class="pack-tag">Pack Intégral</span>
+          <div class="pack-name">Premium</div>
+          <div class="pack-desc">L'experience complete avec guide personnel inclus les 3 premiers jours.</div>
+          <div class="price-b"><span class="price-a">4 800</span><span class="price-u">DH</span></div>
+          <p class="price-note">Guide 3 jours inclus &middot; Jours supp. : 600 DH/j</p>
+          <ul class="pack-items">
+            <li>Dossier AEVM complet</li>
+            <li>Accueil VIP à l'aéroport</li>
+            <li>Accompagnement jusqu'a l'hébergement</li>
+            <li>Guide personnel 3 jours inclus</li>
+            <li>Shopping, visites &amp; bonnes adresses</li>
+            <li>Découvertes culinaires guidées</li>
+            <li>Support illimite 24/7</li>
+          </ul>
+          <a href="https://wa.me/+212755861462?text=Bonjour%20Move%20Agency%2C%0A%0AJe%20souhaite%20réserver%20le%20Pack%20Premium%20(4%20800%20DH).%0A%0ACe%20pack%20comprend%20%3A%20AEVM%20%2B%20accueil%20VIP%20a%20CMN%20%2B%20hébergement%20%2B%20guide%20personnel%203%20jours%20inclus.%0A%0AMerci%20de%20me%20recontacter%20pour%20confirmer%20mes%20dates%20et%20preferences." class="pack-lnk" target="_blank" rel="noopener">Réserver &#8594;</a>
+        </div>
       </div>
 
-      <div class="why-card">
-        <div class="why-n">03</div>
-        <h3>Pack sur mesure</h3>
-        <p>Vol, h&eacute;bergement seul ou combinaison personnalis&eacute;e. Adapt&eacute; &agrave; votre budget, vos dates et vos envies. Devis gratuit.</p>
-        <div style="margin-top:24px;font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);font-weight:300;">Sur mesure</div>
-        <div style="font-size:11px;color:var(--ink-40);margin-bottom:18px;">Devis gratuit en 24h</div>
-        <a href="https://wa.me/212755861462?text=Bonjour%2C%20je%20voudrais%20un%20pack%20sur%20mesure."
-           target="_blank" rel="noopener"
-           style="display:inline-block;border:1.5px solid var(--ink-12);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.8px;padding:10px 24px;border-radius:100px;text-decoration:none;">Configurer</a>
+      <div style="margin-top:20px">
+        <p style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--ink-40);margin-bottom:14px">Options à la carte</p>
+        <div class="opts">
+          <div class="opt"><div class="opt-lbl">Journee complete</div><div class="opt-price">600 <span style="font-size:14px;color:var(--ink-40)">DH</span></div><div class="opt-desc">Guide &amp; accompagnateur &mdash; shopping, visites, courses, medina</div></div>
+          <div class="opt"><div class="opt-lbl">Demi-journée</div><div class="opt-price">350 <span style="font-size:14px;color:var(--ink-40)">DH</span></div><div class="opt-desc">4h d'accompagnement au choix &mdash; matin ou après-midi</div></div>
+          <div class="opt"><div class="opt-lbl">Transfert seul</div><div class="opt-price">400 <span style="font-size:14px;color:var(--ink-40)">DH</span></div><div class="opt-desc">De l'aéroport vers votre hébergement au Maroc</div></div>
+        </div>
       </div>
+    </div>
 
+    <div class="pack-panel" id="panel-pro">
+      <div class="ent-grid" style="margin-top:8px" id="entreprises">
+        <div class="rev">
+          <span class="eye">Offre entreprise</span>
+          <h2 class="disp">Vos équipes méritent<br>le <em>meilleur.</em></h2>
+          <p style="font-size:15px;font-weight:300;line-height:1.9;color:var(--ink-70);margin-bottom:16px">Move Agency gere les déplacements professionnels, séminaires et voyages d'équipes. Devis officiel, facturation pro, zero logistique pour vous.</p>
+          <div class="feat-list">
+            <div class="feat"><div class="fdot"></div><span>AEVMs collectifs &mdash; 3 a 30+ personnes</span></div>
+            <div class="feat"><div class="fdot"></div><span>Hébergements groupes négociés</span></div>
+            <div class="feat"><div class="fdot"></div><span>Accueil et accompagnement à l'aéroport</span></div>
+            <div class="feat"><div class="fdot"></div><span>Devis officiel + facture professionnelle</span></div>
+            <div class="feat"><div class="fdot"></div><span>Tarif dégressif selon le nombre de personnes</span></div>
+            <div class="feat"><div class="fdot"></div><span>Programme sur mesure &mdash; séminaire, incentive</span></div>
+            <div class="feat"><div class="fdot"></div><span>&#9992;&#65039; Recherche &amp; réservation de billets d'avion</span></div>
+          </div>
+        </div>
+        <div class="form-box rev d2">
+          <h3>Devis entreprise</h3>
+          <p>Champs <span class="req">*</span> obligatoires. Le formulaire s'envoie directement sur WhatsApp.</p>
+          <div class="field">
+            <label>Nom &amp; entreprise <span class="req">*</span></label>
+            <input class="inp" id="f-nom" type="text" placeholder="Ex : Jean Mbemba - Societe XYZ">
+            <div class="err-msg" id="e-nom">Ce champ est obligatoire.</div>
+          </div>
+          <div class="field">
+            <label>Adresse email <span class="req">*</span></label>
+            <input class="inp" id="f-email" type="email" placeholder="Ex : jean.mbemba@entreprise.com">
+            <div class="err-msg" id="e-email">Veuillez entrer une adresse email valide.</div>
+          </div>
+          <div class="field">
+            <label>Nombre de personnes <span class="req">*</span></label>
+            <input class="inp" id="f-nb" type="number" min="1" placeholder="Ex : 8">
+            <div class="err-msg" id="e-nb">Veuillez indiquer le nombre de personnes.</div>
+          </div>
+          <div class="field">
+            <label>Date d'arrivée souhaitee <span class="req">*</span></label>
+            <input class="inp" id="f-date" type="date">
+            <div class="err-msg" id="e-date">Veuillez selectionner une date.</div>
+          </div>
+          <div class="field">
+            <label>Durée du séjour</label>
+            <input class="inp" id="f-durée" type="text" placeholder="Ex : 5 jours">
+          </div>
+          <div class="field">
+            <label>Numéro WhatsApp <span class="req">*</span></label>
+            <div class="phone-row">
+              <select class="prefix-sel inp" id="f-indicatif" style="min-width:110px;flex-shrink:0">
+                <option value="+242">+242 Congo</option>
+                <option value="+243">+243 RDC</option>
+                <option value="+237">+237 Cameroun</option>
+                <option value="+241">+241 Gabon</option>
+                <option value="+33">+33 France</option>
+                <option value="+212">+212 Maroc</option>
+              </select>
+              <input class="inp" id="f-tel" type="tel" placeholder="06 XXX XX XX" style="flex:1">
+            </div>
+            <div class="err-msg" id="e-tel">Numéro invalide &mdash; minimum 6 chiffres.</div>
+          </div>
+          <button class="form-btn" onclick="sendWhatsApp()">Envoyer la demande &rarr;</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
