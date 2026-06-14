@@ -245,6 +245,13 @@ h2.disp em{font-style:italic;color:var(--teal)}
 .why-card h3{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:9px}
 .why-card p{font-size:13px;font-weight:300;line-height:1.8;color:var(--ink-70)}
 
+.docs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ink-12);border-radius:8px;overflow:hidden;margin-top:1px}
+.docs-card{background:var(--bg-card);padding:36px 32px;transition:background .25s}
+[data-theme="dark"] .docs-card{background:#1A1D24}
+.docs-card .pack-tag{margin-bottom:14px}
+.docs-card h3{font-size:16px;font-weight:500;color:var(--ink);margin-bottom:16px;font-family:'Playfair Display',serif}
+@media(max-width:880px){.docs-grid{grid-template-columns:1fr}}
+
 .steps-sec{background:var(--s-bg);padding:108px 0;transition:background .35s}
 .seye{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(30,157,139,.8);margin-bottom:18px}
 .seye::before{content:'';display:block;width:18px;height:1px;background:var(--teal);opacity:.6}
@@ -643,12 +650,37 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:38px 48px;display:flex
       <div class="why-card">
         <div class="why-n">03</div>
         <h3>Documents requis</h3>
-        <p>Passeport valide, formulaire de demande, justificatif de domicile, billet d&rsquo;avion, r&eacute;servation h&ocirc;tel. Move Agency vous guide sur chaque pi&egrave;ce.</p>
+        <p>La liste varie selon le motif du voyage (tourisme ou &eacute;tudes). D&eacute;tail complet ci-dessous, Move Agency vous guide sur chaque pi&egrave;ce.</p>
       </div>
       <div class="why-card">
         <div class="why-n">04</div>
         <h3>D&eacute;lai &amp; co&ucirc;t</h3>
-        <p>Traitement en 5 &agrave; 10 jours ouvrables. Nos honoraires : d&egrave;s 800 DH pour un dossier AEVM individuel. Paiement uniquement &agrave; l&rsquo;obtention.</p>
+        <p>Traitement en 5 &agrave; 10 jours ouvrables. Nos honoraires : d&egrave;s 800 DH pour un dossier AEVM individuel.</p>
+      </div>
+    </div>
+
+    <div class="docs-grid rev d1">
+      <div class="docs-card">
+        <span class="pack-tag">Cas tourisme</span>
+        <h3>Documents requis</h3>
+        <div class="feat-list">
+          <div class="feat"><div class="fdot"></div><span>Passeport valide</span></div>
+          <div class="feat"><div class="fdot"></div><span>Photo d&rsquo;identit&eacute;</span></div>
+          <div class="feat"><div class="fdot"></div><span>Attestation d&rsquo;h&eacute;bergement, r&eacute;servation d&rsquo;h&ocirc;tel ou invitation</span></div>
+          <div class="feat"><div class="fdot"></div><span>Carte de s&eacute;jour de la personne qui invite</span></div>
+          <div class="feat"><div class="fdot"></div><span>Relev&eacute; bancaire de la personne qui invite, garantissant 70&euro;/jour</span></div>
+        </div>
+      </div>
+      <div class="docs-card">
+        <span class="pack-tag">Cas scolaire</span>
+        <h3>Documents requis</h3>
+        <div class="feat-list">
+          <div class="feat"><div class="fdot"></div><span>Passeport valide</span></div>
+          <div class="feat"><div class="fdot"></div><span>Attestation d&rsquo;inscription homologu&eacute;e</span></div>
+          <div class="feat"><div class="fdot"></div><span>Prise en charge parentale (si l&rsquo;&eacute;tudiant est financ&eacute; par ses parents)</span></div>
+          <div class="feat"><div class="fdot"></div><span>Attestation d&rsquo;h&eacute;bergement ou invitation</span></div>
+          <div class="feat"><div class="fdot"></div><span>Relev&eacute; bancaire</span></div>
+        </div>
       </div>
     </div>
   </div>
@@ -688,7 +720,7 @@ footer{border-top:1px solid rgba(255,255,255,.08);padding:38px 48px;display:flex
           <div class="pack-name">AEVM seul</div>
           <div class="pack-desc">Vous g&eacute;rez votre séjour. On s'occupe uniquement de vos papiers d'entrée.</div>
           <div class="price-b"><span class="price-a">800</span><span class="price-u">DH</span></div>
-          <p class="price-note">Paiement à l'obtention de l'AEVM</p>
+          <p class="price-note">Dossier AEVM individuel</p>
           <ul class="pack-items">
             <li>Dossier AEVM complet de A à Z</li>
             <li>Suivi &amp; relance jusqu'à validation</li>
